@@ -1,0 +1,67 @@
+<!-- login.component.html -->
+<app-navbar></app-navbar>
+
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <div class="row align-items-center" style="height: 500px">
+    <div class="col-8 ">
+      <div>
+        <img width="70%" src="https://www.milesweb.in/blog/wp-content/uploads/2020/01/12-Proven-Ways-To-Mitigate-Shopping-Cart-Abandonment.png" alt="">
+      </div>
+    </div>
+    <div class="col-4">
+      <div>
+        <div class="card card-border border-black">
+          <div class="card-body">
+            <div class="h2-login">
+              <h2>LOGIN</h2>
+              <hr>
+            </div>
+            <div>
+              <form (ngSubmit)="onLoginSubmit()">
+                <div>
+                  <label for="username">Username:</label>
+                  <input type="text" id="username" name="username" [(ngModel)]="loginForm.username" required>
+                </div>
+                <!-- <div>
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" [(ngModel)]="loginForm.password" required>
+                </div> -->
+                <div>
+                  <label for="password">Password:</label>
+                  <input type="{{ hidePassword ? 'password' : 'text' }}" id="password" name="password" [(ngModel)]="loginForm.password" required>
+                  <button type="button" class="btn btn-sm btn-outline-secondary mx-3" (click)="togglePasswordVisibility()">
+                    <i class="bi bi-eye{{ hidePassword ? '-slash' : '' }}"></i>
+                  </button>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Login</button>
+              </form>
+            </div>
+            <hr>
+            <div class="row">
+              <a routerLink="registration" >New here ? Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- <div class="login-container">
+      <h2>Login</h2>
+
+      <hr>
+      <div class="row">
+        <a routerLink="registration" >New here ? Register</a>
+      </div>
+    </div>
+
+    <div>
+      <img src="https://images.pexels.com/photos/792345/pexels-photo-792345.jpeg?cs=srgb&dl=pexels-willian-justen-de-vasconcellos-792345.jpg&fm=jpg" alt="" width="300" height="300">
+    </div> -->
+
+
+
+

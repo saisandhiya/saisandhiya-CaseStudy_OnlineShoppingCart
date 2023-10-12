@@ -1,0 +1,62 @@
+/* Custom CSS to style the card */
+/* Center the content vertically and horizontally */
+.col-md-6.offset-md-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Adjust the minimum height as needed */
+  }
+  
+  /* Style the form container */
+  .form-container {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width as needed */
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style form elements */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Style form labels */
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Style form inputs */
+  .form-group input[type="text"],
+  .form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style error messages */
+  .text-danger {
+    color: red;
+  }
+  
+  /* Style the submit button */
+  button[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  

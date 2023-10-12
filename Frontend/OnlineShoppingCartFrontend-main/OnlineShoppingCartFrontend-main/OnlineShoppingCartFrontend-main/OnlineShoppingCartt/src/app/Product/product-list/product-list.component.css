@@ -1,0 +1,33 @@
+/* Add borders to the table and cells */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* Add background color to header row */
+  .table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add alternating row colors */
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add some padding and alignment to action buttons */
+  .table td button {
+    margin-top: 10px;
+  }
+  
+  
+  img{
+    width: 100px;
+    height: 100px;
+}

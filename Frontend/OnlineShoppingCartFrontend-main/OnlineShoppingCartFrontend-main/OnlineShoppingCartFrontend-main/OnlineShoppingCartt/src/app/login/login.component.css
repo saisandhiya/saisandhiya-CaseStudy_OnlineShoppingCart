@@ -1,0 +1,62 @@
+/* Container for the login form */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the form */
+  }
+  
+  h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: center; /* Center-align the form fields */
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Reduce the width and height of the input boxes */
+  .form-group.username input[type="text"],
+  .form-group.password input[type="password"] {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 250px; /* Set a maximum width for the input boxes */
+    padding: 8px; /* Reduce padding */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto; /* Center the input boxes */
+    height: 30px; /* Reduce height */
+  }
+
+
+  .h2-login{
+    text-align: center;
+    color: #198754;
+    /*background-color: whitesmoke;*/
+    margin-bottom: 30px;
+  }
+  
+  .error {
+    color: #f00;
+    font-size: 12px;
+    text-align: center; /* Center the error messages */
+    margin-top: 5px;
+  }
+  
+
+  

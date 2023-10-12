@@ -1,0 +1,72 @@
+<app-customer-navbar></app-customer-navbar>
+
+<div class="cart-main-div">
+
+    <table class="table" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col" style="color: #2B6C5F;">Product</th>
+                <th scope="col" style="color: #2B6C5F;">Quantity</th>
+                <th scope="col" style="color: #2B6C5F;">Image</th>
+                <th scope="col" style="color: #2B6C5F;">Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems">
+
+                <td style="vertical-align: center;padding-top: 16px; padding-bottom: 14px; font-weight: normal;">
+                    {{item.productName}}</td>
+                <td style="vertical-align: center;padding-top: 16px; padding-bottom: 14px; font-weight: 490;">
+                    <button
+                    style="border: 1.5px solid #9C1C4F; color: #9C1C4F; padding: 3px 6px; width: 30px; background-color: transparent; font-size: 11px; border-radius: 4px; font-weight: bold;" (click)="decreaseProduct(item.productId)">  -  </button>
+                    {{item.quantity}} <button
+                    style="border: 1.5px solid #9C1C4F; color: #9C1C4F; padding: 3px 6px; width: 30px; background-color: transparent; font-size: 11px; border-radius: 4px; font-weight: bold;" (click)="increaseProduct(item.productId)">  +  </button></td>
+                <td style="vertical-align: center;padding-top: 16px; padding-bottom: 14px; font-weight: 490;">
+                    <img src="{{item.image}}" alt="" height="50" width="100px"></td>
+                <td style="vertical-align: center;padding-top: 16px; padding-bottom: 14px;"><button
+                        style="border: 1.5px solid #9C1C4F; color: #9C1C4F; padding: 3px 6px; width: 90px; background-color: transparent; font-size: 11px; border-radius: 4px;" (click)="removeProduct(item.productId)">Remove</button>
+                </td>
+                <!-- style="border: none; width: 60px; padding: 4px 6px 4px 6px; background-color: black; color: white; border-radius: 6px; font-size: 12px;" -->
+            </tr>
+        </tbody>
+    </table>
+
+
+    
+    
+    <div class="total-amount-container">
+        <span style="font-size: 16px;">Total cart amount: <span
+                style="font-weight: 590; font-size: 19px; margin-left: 0.4%; color: #BE4A76;">₹{{totalPrice}}</span></span>
+    </div>
+
+    
+    
+
+      
+
+    
+      
+
+    <div
+        style="width: 90%; margin-left: auto; margin-right: auto; margin-top: 2%; display: flex; align-items: center; justify-content: end; margin-bottom: 2%;">
+
+        
+        <div style="margin-right: 2%;">
+            <button class="cart-button" style="color: #B94357; border: 1.5px solid #B94357;" (click)="homeService.clearCart()">Clear cart</button>
+        </div>
+
+        
+
+        <div>
+            <button class="cart-button" 
+                style="color: black; border: 1.5px solid black;" (click)="checkOut()" [disabled]="checkOutButton">Checkout</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+

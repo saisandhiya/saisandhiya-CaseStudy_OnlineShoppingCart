@@ -1,0 +1,185 @@
+<div class="col-md-6 offset-md-3">
+
+    <h3> Update Product Details</h3>
+    <form
+    name="form" 
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+        <div class="form-group">
+            <label for="productId">ProductId</label>
+            <input type="number" 
+            class="form-control" 
+            id="productId"  
+            name="productId"
+            required 
+            min=0
+            [(ngModel)]="products.productId"
+            #productId="ngModel"
+            [ngClass]="{'is-invalid':f.submitted && productId.errors}">
+
+            <div *ngIf="f.submitted && productId.errors">
+                <small class="text-danger" *ngIf="productId.errors['required']">* Product Id is required</small>
+                <small class="text-danger" *ngIf="productId.errors['min']">* Product Id must be Positive</small>
+            </div> 
+        </div>
+    
+        <div class="form-group">
+            <label for="productType">Product Type</label>
+            <input type="text" 
+            class="form-control" 
+            id="productType"  
+            name="productType"
+            required    
+            pattern="[a-zA-Z][a-zA-Z ]+"
+            #productType="ngModel"
+           [(ngModel)]="products.productType"
+           [ngClass]="{'is-invalid':f.submitted && productType.errors}">
+
+           <div *ngIf="f.submitted && productType.errors">
+            <small class="text-danger" *ngIf="productType.errors['required']">* Product Type is required</small>
+            <small class="text-danger" *ngIf="productType.errors['pattern']">* Product Type must be in Alphabets</small>
+           </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text"
+            class="form-control" 
+            id="productName"  
+            name="productName"
+            required
+            #productName="ngModel"
+            [(ngModel)]="products.productName"
+            [ngClass]="{'is-invalid': f.submitted && productName.errors}">
+
+            <div *ngIf="f.submitted && productName.errors">
+                <small class="text-danger" *ngIf="productName.errors['required']">* Product Name cannot be Empty </small>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text"
+            class="form-control" 
+            id="category"  
+            name="category"
+            required
+            pattern="[a-zA-Z][a-zA-Z ]+"
+            #category="ngModel"
+           [(ngModel)]="products.category"
+           [ngClass]="{'is-invalid':f.submitted && category.errors}">
+
+           <div *ngIf="f.submitted && category.errors">
+            <small class="text-danger" *ngIf="category.errors['required']">* Category cannot be Empty </small>
+            <small class="text-danger" *ngIf="category.errors['pattern']">* Product Category must be in Alphabets</small>
+        </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" 
+            class="form-control" 
+            id="rating"  
+            name="rating"
+            required
+            min=0
+            max=5
+            #rating="ngModel"
+            [(ngModel)]="products.rating"
+            [ngClass]="{'is-invalid': f.submitted && rating.errors }">
+
+            <div *ngIf="f.submitted && rating.errors">
+                <small class="text-danger" *ngIf="rating.errors['required']">* Rating is required</small>
+                <small class="text-danger" *ngIf="rating.errors['min']">* Rating is between zero to 5</small>
+                <small class="text-danger" *ngIf="rating.errors['max']">* Rating is between zero to 5</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="review">Review</label>
+            <input type="text" 
+            class="form-control" 
+            id="review"  
+            name="review"
+            required
+            #review="ngModel"
+            [(ngModel)]="products.review"
+            [ngClass]="{'is-invalid':f.submitted && review.errors}">
+
+            <div *ngIf="f.submitted && review.errors">
+                <small class="text-danger" *ngIf="review.errors['required']">* Review must be filled </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" 
+            class="form-control" 
+            id="image"  
+            name="image"
+            required
+            #img="ngModel"
+            [(ngModel)]="products.image"
+            [ngClass]="{'is-invalid':f.submitted && img.errors}">
+
+            <div *ngIf="f.submitted && img.errors">
+                <small class="text-danger" *ngIf="img.errors['required']">* Image is required </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" 
+            class="form-control" 
+            id="price"  
+            name="price"
+            required
+            min=10
+            #price="ngModel"
+            [(ngModel)]="products.price"
+            [ngClass]="{'is-invalid':f.submitted && price.errors}">
+
+            <div *ngIf="f.submitted && price.errors">
+                <small class="text-danger" *ngIf="price.errors['required']">* Price is required </small>
+                <small class="text-danger" *ngIf="price.errors['min']">* Minimum price of the product must be greater than 10 </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text"  
+            class="form-control" 
+            id="description"  
+            name="description"
+            required
+            #desc="ngModel"
+            [(ngModel)]="products.description"
+            [ngClass]="{'is-invalid':f.submitted && desc.errors}">
+
+            <div *ngIf="f.submitted && desc.errors">
+                <small class="text-danger" *ngIf="desc.errors['required']">* Description is required </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="specification">Specification</label>
+            <input type="text" 
+            class="form-control" 
+            id="specification"  
+            name="specification"
+            required
+            #spec="ngModel"
+            [(ngModel)]="products.specification"
+            [ngClass]="{'is-invalid':f.submitted && spec.errors}">
+
+            <div *ngIf="f.submitted && spec.errors">
+                <small class="text-danger" *ngIf="spec.errors['required']">* Specification id required</small>
+            </div>
+        </div>
+    
+        <button  class="btn btn-success mt-3" type="submit">Update Product</button> 
+    </form>
+    </div>

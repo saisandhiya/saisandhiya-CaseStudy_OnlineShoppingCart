@@ -1,0 +1,42 @@
+<app-admin-navbar></app-admin-navbar>
+
+
+<div class="container">
+    <h2 style="text-align: center; text-decoration: underline;color: #198754;">Transaction Table</h2>
+    <div style="display: flex; justify-content: center;">
+        <input type="text" [(ngModel)]="search" (keyup)="searchByTransactionId()" class="search-box mt-2 mb-2" placeholder="Search By Transaction Id..." id="search">
+      </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Cart ID</th>
+          <th>User Name</th>
+          <th>Amount</th>
+          <th>Transaction Status</th>
+          <th>Payment Mode</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="search != ''">
+        <tr *ngFor="let transaction of searchByTransactionId()">
+          <td>{{ transaction.transactionId }}</td>
+          <td>{{ transaction.cartId }}</td>
+          <td>{{ transaction.userName }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.transactionStatus }}</td>
+          <td>{{ transaction.paymentMode }}</td>
+        </tr>
+      </tbody>
+      <tbody  *ngIf="search == ''">
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.transactionId }}</td>
+          <td>{{ transaction.cartId }}</td>
+          <td>{{ transaction.userName }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.transactionStatus }}</td>
+          <td>{{ transaction.paymentMode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

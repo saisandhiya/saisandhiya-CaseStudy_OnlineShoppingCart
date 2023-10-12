@@ -1,0 +1,74 @@
+<h2 align="center">Product Details</h2>
+<button routerLink="product-create" class="btn btn-success" style="margin-bottom:10px; 
+margin-left:1100px; 
+height: 50px;
+width:70px">Add Product</button>
+
+<div class="container">
+  <div class="card-table">
+    <div class="card-product">
+      <table class="table table-stripped tb">
+        <thead>
+          <tr>
+            <th>ProductId</th>
+            <th>Product Type</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>review</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Specification</th>
+            <th head-size>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of products">
+            <td class="text-size">{{prod.productId}}</td>
+            <td class="text-size">{{prod.productType}}</td>
+            <td class="text-size">{{prod.productName}}</td>
+            <td class="text-size">{{prod.category}}</td>
+            <td class="text-size">{{prod.rating}}</td>
+            <td class="text-size">{{prod.review}}</td>
+            <td class="text-size"><img src="{{prod.image}}" alt="img"></td>
+
+            <td class="text-size">{{prod.price}}</td>
+            <td class="text-size">{{prod.description}}</td>
+            <td class="text-size">{{prod.specification}}</td>
+            <td>
+              <button (click)="updateProduct(prod.productId)" routerLink="product-update"
+                class="btn btn-info">Update</button>
+              <button (click)="deleteProduct(prod.productId)" class="btn btn-danger"
+                style="margin-top: 10px">Delete</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

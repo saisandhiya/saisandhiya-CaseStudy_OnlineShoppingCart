@@ -1,0 +1,26 @@
+.error {
+    color: #f00;
+    font-size: 12px;
+    /* text-align: center; Center the error messages */
+    margin-top: 5px;
+  }
+
+  /* Style for the form */
+.card {
+  width: 100%;
+}
+
+.card-header {
+  font-weight: bold;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+/* Add more styles as needed */
+
+/* Style for the submit button */
+.btn-success {
+  width: 100%;
+}

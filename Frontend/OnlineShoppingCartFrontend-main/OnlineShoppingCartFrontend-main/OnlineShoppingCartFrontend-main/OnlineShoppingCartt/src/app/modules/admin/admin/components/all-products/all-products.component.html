@@ -1,0 +1,144 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div style="display: flex; justify-content: center;">
+  <input type="text" [(ngModel)]="search" (keyup)="searchByProductName()" class="search-box mt-2 mb-2" placeholder="Search By Product Name..." id="search">
+</div>
+<div class="card-deck mt-5">
+    <div class="card mb-4 custom-card" *ngFor="let item of productList">
+      <img src="{{item.image}}" class="card-img-top" alt="Product Image" width="35" height="50">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.productName }}</h5>
+        <p class="card-text">{{ item.description }}</p>
+        <p class="card-text"><strong>Price:</strong> ₹ {{ item.price }}</p>
+        <button class="btn btn-link"  data-bs-toggle="modal" data-bs-target="#productDetailsModal" (click)="showProductDetails(item)">See More</button>
+        <hr>
+        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getProduct(item.productId)">Update</button>
+        <button class="btn btn-outline-danger" (click)="deleteProduct(item.productId)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Product</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="productForm">
+                <div class="mb-3">
+                  <label for="productType" class="form-label">Product Type</label>
+                  <input type="text" class="form-control" id="productType" formControlName="productType" >
+                  <div class="text-danger" *ngIf="productForm.get('productType').hasError('required') && (productForm.get('productType').dirty || productForm.get('productType').touched)">
+                      Product Type is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="productName" class="form-label">Product Name</label>
+                  <input type="text" class="form-control" id="productName" formControlName="productName" >
+                  <div class="text-danger" *ngIf="productForm.get('productName').hasError('required') && (productForm.get('productName').dirty || productForm.get('productName').touched)">
+                      Product Name is required
+                    </div>
+                </div>
+                <!-- Add other form controls with validation -->
+                <div class="mb-3">
+                  <label for="rating" class="form-label">Rating</label>
+                  <input type="text" class="form-control" id="rating" formControlName="rating">
+                  <div *ngIf="productForm.get('rating').hasError('required') && productForm.get('rating').touched" class="text-danger">
+                      Rating is required
+                    </div>
+                    <div *ngIf="productForm.get('rating').hasError('pattern') && productForm.get('rating').touched" class="text-danger">
+                      Rating must be [1,2,3,4,5]
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Review</label>
+                  <input type="text" class="form-control" id="review" formControlName="review" >
+                  <div *ngIf="productForm.get('review').hasError('required') && productForm.get('review').touched" class="text-danger">
+                      Review is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Category</label>
+                  <input type="text" class="form-control" id="review" formControlName="category" >
+                  <div *ngIf="productForm.get('category').hasError('required') && productForm.get('category').touched" class="text-danger">
+                      Category is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Price</label>
+                  <input type="number" class="form-control" id="review" formControlName="price" >
+                  <div *ngIf="productForm.get('price').hasError('required') && productForm.get('price').touched" class="text-danger">
+                      Price is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Image</label>
+                  <input type="text" class="form-control" id="review" formControlName="image" >
+                  <div *ngIf="productForm.get('image').hasError('required') && productForm.get('image').touched" class="text-danger">
+                      image is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Description</label>
+                  <input type="" class="form-control" id="review" formControlName="description" >
+                  <div *ngIf="productForm.get('description').hasError('required') && productForm.get('description').touched" class="text-danger">
+                      Description is required
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="review" class="form-label">Specification</label>
+                  <input type="text" class="form-control" id="review" formControlName="specification" >
+                  <div *ngIf="productForm.get('specification').hasError('required') && productForm.get('specification').touched" class="text-danger">
+                      Specification is required
+                    </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click)="updateForm(productForm.value)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+<div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productDetailsModalLabel">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="selectedProduct">
+          <img [src]="selectedProduct.image" alt="Product Image" class="img-fluid mb-3" style="max-height: 300px;">
+          <p><strong>Product Type:</strong> {{ selectedProduct.productType }}</p>
+          <hr>
+          <p><strong>Product Name:</strong> {{ selectedProduct.productName }}</p>
+          <hr>
+          <p><strong>Product Rating:</strong> {{ selectedProduct.rating }}</p>
+          <hr>
+          <p><strong>Product Description:</strong> {{ selectedProduct.description }}</p>
+          <hr>
+          <p><strong>Product Specification:</strong> {{ selectedProduct.specification }}</p>
+          <hr>
+          <p><strong>Product Review:</strong> {{ selectedProduct.review }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

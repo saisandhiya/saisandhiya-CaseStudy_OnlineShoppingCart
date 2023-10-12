@@ -1,0 +1,42 @@
+/* Custom styles for address cards */
+.address-container {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
+  .address-card {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .list-group-item {
+    border: none;
+  }
+  
+  .selected {
+    border: 2px solid #198754; /* Adjust the border color for the selected card */
+  }
+
+  span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

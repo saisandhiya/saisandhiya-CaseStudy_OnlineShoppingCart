@@ -1,0 +1,99 @@
+.cart-main-div{
+    margin-top: 3%;
+}
+
+.text-container{
+    width: 90%;
+    text-align: left;
+    padding: 4px 4px 4px 10px;
+    /* color: black; */
+    font-size: 23px;
+    font-weight: 450;
+    color: #2B6C5F;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.7%;
+    /* border: 1px solid red; */
+}
+
+.cart-products-container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px 10px 20px;
+    border: 1.3px solid #3C8355;
+    border-radius: 8px;
+}
+
+.product-quantity-select{
+    width: 80px; 
+    margin-left: 3%; 
+    padding: 6px 10px 6px 6px; 
+    font-size: 13px;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cart-button{
+    padding: 6px 10px 6px 10px;
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 14px;
+    /* margin-left: 2%; */
+    /* margin-right: 2%; */
+}
+
+.total-amount-container{
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-left: 4%; */
+    text-align: center;
+    padding: 12px;
+    border: 1.5px solid #2B6C5F;
+    border-radius: 8px;
+}
+
+.empty-cart-message{
+
+    width: 60%;
+    text-align: center;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 4px 20px 4px;
+    /* color: black; */
+    font-size: 20px;
+    font-weight: 450;
+    color: #B94357;
+    border: 1.5px solid #B94357;
+    border-radius: 8px;
+
+}
+
+/* table{
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+    overflow-x: scroll;
+} */
+
+/* tr,td,th{
+    padding: 10px;
+    width: 35%;
+} */
+
+@media screen and (max-width: 400px){
+
+    .cart-products-container{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px 20px 10px 20px;
+        overflow-x: scroll;
+    }
+    
+}

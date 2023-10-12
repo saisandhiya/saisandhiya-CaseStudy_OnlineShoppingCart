@@ -1,0 +1,86 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            Add Product
+          </div>
+          <div class="card-body">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="productType" class="form-label">Product Type</label>
+                <input type="text" class="form-control" id="productType" formControlName="productType" >
+                <div class="text-danger" *ngIf="productForm.get('productType').hasError('required') && (productForm.get('productType').dirty || productForm.get('productType').touched)">
+                    Product Type is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="productName" formControlName="productName" >
+                <div class="text-danger" *ngIf="productForm.get('productName').hasError('required') && (productForm.get('productName').dirty || productForm.get('productName').touched)">
+                    Product Name is required
+                  </div>
+              </div>
+              <!-- Add other form controls with validation -->
+              <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating">
+                <div *ngIf="productForm.get('rating').hasError('required') && productForm.get('rating').touched" class="text-danger">
+                    Rating is required
+                  </div>
+                  <div *ngIf="productForm.get('rating').hasError('pattern') && productForm.get('rating').touched" class="text-danger">
+                    Rating must be [1,2,3,4,5]
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Review</label>
+                <input type="text" class="form-control" id="review" formControlName="review" >
+                <div *ngIf="productForm.get('review').hasError('required') && productForm.get('review').touched" class="text-danger">
+                    Review is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Category</label>
+                <input type="text" class="form-control" id="review" formControlName="category" >
+                <div *ngIf="productForm.get('category').hasError('required') && productForm.get('category').touched" class="text-danger">
+                    Category is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Price</label>
+                <input type="number" class="form-control" id="review" formControlName="price" >
+                <div *ngIf="productForm.get('price').hasError('required') && productForm.get('price').touched" class="text-danger">
+                    Price is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Image</label>
+                <input type="text" class="form-control" id="review" formControlName="image" >
+                <div *ngIf="productForm.get('image').hasError('required') && productForm.get('image').touched" class="text-danger">
+                    image is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Description</label>
+                <input type="" class="form-control" id="review" formControlName="description" >
+                <div *ngIf="productForm.get('description').hasError('required') && productForm.get('description').touched" class="text-danger">
+                    Description is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="review" class="form-label">Specification</label>
+                <input type="text" class="form-control" id="review" formControlName="specification" >
+                <div *ngIf="productForm.get('specification').hasError('required') && productForm.get('specification').touched" class="text-danger">
+                    Specification is required
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-success float-center" [disabled]="!productForm.valid">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
